@@ -27,16 +27,22 @@ public class Season {
     public void run() {
         this.league = LeagueFactory.createLeague(6);
         playAllGames();
-        // Call Display methods below
-
     }
 
     /**
      * Playing whole round. Everyone with everyone one time. Number of teams in league should be even.
      * Following solution represents the robin-round tournament.
      */
+    int COUNT = 0;
+
     private void playAllGames() {
-        throw new RuntimeException("playAllGames method not implemented");
+        league.forEach(team -> league.stream().skip(league.indexOf(team)).forEach(team1 -> {
+            if (!team.equals(team1)) {
+                playMatch(team, team1);
+                ++COUNT;
+                System.out.println("Played matches counter -> " + COUNT + "\n");
+            }
+        }));
     }
 
     /**
