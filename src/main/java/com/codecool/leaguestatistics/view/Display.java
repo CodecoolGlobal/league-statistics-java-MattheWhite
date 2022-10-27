@@ -13,5 +13,6 @@ public class Display {
                 .append(resultTeam1).append("\t")
                 .append(resultTeam2);
         System.out.println(display);
+        // TODO: Rewrite the method using the TableList class
     }
 }
