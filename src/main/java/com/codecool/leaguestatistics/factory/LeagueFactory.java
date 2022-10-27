@@ -37,8 +37,8 @@ public class LeagueFactory {
      * Returns a collection with a given amount of newly created players
      */
     private static List<Player> getPlayers(int amount) {
-        // IntStream.range(0, amount).mapToObj(i -> new Player(getPlayerSkillRate())).collect(Collectors.toList());
-        return Collections.nCopies(amount, new Player(getPlayerSkillRate())).stream().collect(Collectors.toList());
+        return IntStream.range(0, amount).mapToObj(i -> new Player(getPlayerSkillRate())).collect(Collectors.toList());
+        // return Collections.nCopies(amount, new Player(getPlayerSkillRate())).stream().collect(Collectors.toList());
     }
 
     private static int getPlayerSkillRate() {
