@@ -1,11 +1,17 @@
 package com.codecool.leaguestatistics.factory;
 
-import com.codecool.leaguestatistics.Utils;
+import com.codecool.leaguestatistics.util.Utils;
+import com.codecool.leaguestatistics.model.Division;
 import com.codecool.leaguestatistics.model.Player;
 import com.codecool.leaguestatistics.model.Team;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Provides full set of teams with players
@@ -19,7 +25,12 @@ public class LeagueFactory {
      * @return Full set of teams with players
      */
     public static List<Team> createLeague(int teamsInDivision) {
-        throw new RuntimeException("createLeague method not implemented");
+        List<Team> teams = new ArrayList<>();
+        Arrays.asList(Division.values())
+                .forEach(division -> teams.addAll(IntStream.range(0, teamsInDivision)
+                .mapToObj(i -> new Team(division, getPlayers(Utils.TEAM_SIZE)))
+                .collect(Collectors.toList())));
+        return teams;
     }
 
     /**
