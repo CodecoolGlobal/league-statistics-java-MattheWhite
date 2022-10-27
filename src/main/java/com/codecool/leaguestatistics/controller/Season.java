@@ -1,10 +1,13 @@
 package com.codecool.leaguestatistics.controller;
 
+import com.codecool.leaguestatistics.util.Utils;
 import com.codecool.leaguestatistics.factory.LeagueFactory;
 import com.codecool.leaguestatistics.model.Team;
+import com.codecool.leaguestatistics.view.Display;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Provides all necessary methods for season simulation
@@ -49,6 +52,13 @@ public class Season {
      * @return All goals scored by the team in current game
      */
     private int getScoredGoals(Team team) {
-        throw new RuntimeException("getScoredGoals method not implemented");
+        AtomicInteger goals = new AtomicInteger();
+        team.getPlayers().forEach(player -> {
+            if (player.getSkillRate() > Utils.getRandomValue(1, 101)) {
+                goals.addAndGet(1);
+                player.setGoals(player.getGoals() + 1);
+            }
+        });
+        return goals.get();
     }
 }
