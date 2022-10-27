@@ -1,6 +1,6 @@
 package com.codecool.leaguestatistics.factory;
 
-import com.codecool.leaguestatistics.Utils;
+import com.codecool.leaguestatistics.util.Utils;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
