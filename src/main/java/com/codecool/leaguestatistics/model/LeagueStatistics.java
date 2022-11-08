@@ -1,6 +1,10 @@
 package com.codecool.leaguestatistics.model;
 
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Provides all necessary statistics of played season.
