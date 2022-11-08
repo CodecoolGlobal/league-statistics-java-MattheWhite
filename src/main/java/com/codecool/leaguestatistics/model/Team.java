@@ -28,7 +28,7 @@ public class Team {
     }
 
     /**
-     * Helper method that finds best player with most scored goals in team
+     * Helper method that finds the best player with most scored goals in team
      */
     public Player getBestPlayer() {
         return players.stream()
