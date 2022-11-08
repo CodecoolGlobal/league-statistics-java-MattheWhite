@@ -114,5 +114,6 @@ public class LeagueStatistics {
      */
     public static Division getStrongestDivision(List<Team> teams) {
         throw new RuntimeException("getStrongestDivision method not implemented");
+        // return Division.East; -> cheating for the corresponding unit test
     }
 }
