@@ -91,6 +91,15 @@ public class Team {
         this.players = players;
     }
 
+    public int getAllGoals() {
+        return players.stream().mapToInt(Player::getGoals).sum();
+        // map methods uses lambda functions too
+        // it has to get a parameter (iterates through the stream/Collection which it was called on)
+        // but this lambda expression can be replayed with method reference
+        // mapToInt((Player player) -> player.getGoals) = mapToInt(Player::getGoals)
+        // mapToInt() because we convert stream Player into stream Integers, returns streams always -> intermediate op.!
+    }
+
     @Override
     public String toString() {
         return "Team{" +
