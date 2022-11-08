@@ -56,7 +56,10 @@ public class LeagueStatistics {
      * @return Collection of selected Teams.
      */
     public static List<Team> getTopTeamsWithLeastLoses(List<Team> teams, int teamsNumber) {
-        throw new RuntimeException("getTopTeamsWithLeastLoses method not implemented");
+        return teams.stream()
+                .sorted(Comparator.comparing(Team::getLoses)
+                        .thenComparing(Comparator.comparing(Team::getCurrentPoints).reversed()))
+                .limit(teamsNumber).collect(Collectors.toList());
     }
 
     /**
