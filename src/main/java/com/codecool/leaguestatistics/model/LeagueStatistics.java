@@ -60,6 +60,8 @@ public class LeagueStatistics {
                 .sorted(Comparator.comparing(Team::getLoses)
                         .thenComparing(Comparator.comparing(Team::getCurrentPoints).reversed()))
                 .limit(teamsNumber).collect(Collectors.toList());
+        // Comparator returns 1, 0, or -1 when compares to two element then based on the return value it sorts the order.
+        // 1 -> true, 0 -> equals, -1 -> false, on default it will order asc. order, that's why .reversed() needed.
     }
 
     /**
