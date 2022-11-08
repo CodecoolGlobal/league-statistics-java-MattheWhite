@@ -2,7 +2,9 @@ package com.codecool.leaguestatistics.model;
 
 import com.codecool.leaguestatistics.factory.NamesGenerator;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Represents a team.
@@ -29,7 +31,9 @@ public class Team {
      * Helper method that finds best player with most scored goals in team
      */
     public Player getBestPlayer() {
-        throw new RuntimeException("getBestPlayer method not implemented");
+        return players.stream()
+                .sorted(Comparator.comparing(Player::getGoals).reversed())
+                .findAny().orElse(null);
     }
 
     /**
