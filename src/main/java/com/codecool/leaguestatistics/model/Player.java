@@ -53,4 +53,13 @@ public class Player {
     public void setGoals(int goals) {
         this.goals = goals;
     }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", skillRate=" + skillRate +
+                ", goals=" + goals +
+                '}';
+    }
 }
