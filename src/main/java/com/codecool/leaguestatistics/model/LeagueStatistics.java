@@ -15,7 +15,16 @@ public class LeagueStatistics {
      * Gets all teams with highest points order, if points are equal next deciding parameter is sum of goals of the team.
      */
     public static List<Team> getAllTeamsSorted(List<Team> teams) {
-        throw new RuntimeException("getAllTeamsSorted method not implemented");
+        Comparator<Team> teamComparator = new Comparator<Team>() {
+            @Override
+            public int compare(Team team1, Team team2) {
+                return Integer.compare(team1.getCurrentPoints(), team2.getCurrentPoints());
+            }
+        };
+        return teams.stream()
+                .sorted(teamComparator.reversed()
+                        .thenComparing((Team team1, Team team2) -> Integer.compare(team2.getAllGoals(), team1.getAllGoals())))
+                .collect(Collectors.toList());
     }
 
     /**
