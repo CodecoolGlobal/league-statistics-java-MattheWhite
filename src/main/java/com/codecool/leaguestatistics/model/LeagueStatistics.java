@@ -50,6 +50,17 @@ public class LeagueStatistics {
     }
 
     /**
+     * Will return the longest name of the
+     * @param teams
+     * @return the name of hte team with the longest name
+     */
+    public static String getTeamsNameWithTheLongestName(List<Team> teams) {
+        return teams.stream()
+                .map(Team::getName)
+                .max(Comparator.comparing(String::length)).orElse(null);
+    }
+
+    /**
      * Gets top teams with least number of lost matches.
      * If the amount of lost matches is equal, next deciding parameter is team's current points value.
      * @param teamsNumber The number of Teams to select.
