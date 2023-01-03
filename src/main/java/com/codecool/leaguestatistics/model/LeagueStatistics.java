@@ -50,6 +50,15 @@ public class LeagueStatistics {
     }
 
     /**
+     * Same method with the same output like the one above, only in other way.
+     */
+    public static Team getTeamWithTheLongestNameWithMax(List<Team> teams) {
+        return teams.stream().min(Comparator.comparing(Team::getName)).orElse(null);
+        // will sort in descend order
+        // instead of .get() use .orElse() for return null if it is not exists
+    }
+
+    /**
      * Will return the longest name of the
      * @param teams
      * @return the name of hte team with the longest name
